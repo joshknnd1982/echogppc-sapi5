@@ -1,0 +1,75 @@
+#include <windows.h>
+#include <commctrl.h>
+#include "config_resource.h"
+
+IDI_APPICON ICON "../installer/echogppc.ico"
+
+// Dialog layout notes, since they are all accessibility decisions:
+//
+//  * Each label sits immediately before its control in this template. Screen
+//    readers derive a control's name from the preceding static text, so that
+//    ordering is what makes every field announce itself properly -- it is not
+//    cosmetic.
+//  * Every interactive control has WS_TABSTOP. Nothing is disabled, including
+//    the two Textalker-3-only fields: a disabled control drops out of the tab
+//    order entirely, so those say so in their label instead.
+//  * Mnemonics are unique across the whole dialog (V R P U D C K A M O F L
+//    S T G E), so each Alt+letter goes straight to one control.
+//  * Ranges are spelled out in the labels, because a spin control announces
+//    its number but not its limits.
+
+IDD_CONFIG DIALOGEX 0, 0, 350, 292
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+CAPTION "Echo GPPC Configuration"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Voice:", IDC_VOICE_LABEL, 7, 12, 215, 8
+    COMBOBOX        IDC_VOICE, 228, 10, 115, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP | WS_GROUP
+
+    LTEXT           "&Rate:", IDC_RATE_LABEL, 7, 30, 215, 8
+    COMBOBOX        IDC_RATE, 228, 28, 115, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Pitch (0 to 63):", IDC_PITCH_LABEL, 7, 48, 215, 8
+    EDITTEXT        IDC_PITCH, 228, 46, 115, 14, ES_AUTOHSCROLL | ES_NUMBER | WS_TABSTOP
+
+    LTEXT           "Vol&ume (0 to 15):", IDC_VOLUME_LABEL, 7, 66, 215, 8
+    EDITTEXT        IDC_VOLUME, 228, 64, 115, 14, ES_AUTOHSCROLL | ES_NUMBER | WS_TABSTOP
+
+    LTEXT           "&Delay between words (Textalker 3 only) (0 to 15):",
+                    IDC_WORDDELAY_LABEL, 7, 84, 215, 8
+    EDITTEXT        IDC_WORDDELAY, 228, 82, 115, 14, ES_AUTOHSCROLL | ES_NUMBER | WS_TABSTOP
+
+    LTEXT           "Repeat-&character filter (0 to 99):", IDC_REPEAT_LABEL, 7, 102, 215, 8
+    EDITTEXT        IDC_REPEAT, 228, 100, 115, 14, ES_AUTOHSCROLL | ES_NUMBER | WS_TABSTOP
+
+    LTEXT           "Chip cloc&k:", IDC_CLOCK_LABEL, 7, 120, 215, 8
+    COMBOBOX        IDC_CLOCK, 228, 118, 115, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Output sample r&ate:", IDC_SAMPLERATE_LABEL, 7, 138, 215, 8
+    COMBOBOX        IDC_SAMPLERATE, 228, 136, 115, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    AUTOCHECKBOX    "&Monotone", IDC_MONOTONE, 7, 158, 336, 10, WS_TABSTOP
+    AUTOCHECKBOX    "C&ompressed speech", IDC_COMPRESSED, 7, 172, 336, 10, WS_TABSTOP
+
+    GROUPBOX        "Advanced", IDC_ADVANCED_GROUP, 7, 188, 336, 58, WS_GROUP
+
+    LTEXT           "&Frame rate (the chip's own four-step rate):",
+                    IDC_FRAMERATE_LABEL, 14, 204, 202, 8
+    COMBOBOX        IDC_FRAMERATE, 221, 202, 115, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Log detail:", IDC_LOGLEVEL_LABEL, 14, 226, 202, 8
+    COMBOBOX        IDC_LOGLEVEL, 221, 224, 115, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "", IDC_STATUS, 7, 254, 336, 16, WS_GROUP
+
+    PUSHBUTTON      "&Speak test", IDC_SPEAK, 7, 271, 78, 14, WS_TABSTOP | WS_GROUP
+    PUSHBUTTON      "Rese&t to defaults", IDC_RESET, 91, 271, 78, 14, WS_TABSTOP
+    PUSHBUTTON      "Open lo&g folder", IDC_OPENLOGS, 175, 271, 78, 14, WS_TABSTOP
+    DEFPUSHBUTTON   "Clos&e", IDCANCEL, 265, 271, 78, 14, WS_TABSTOP
+END

@@ -1,0 +1,33 @@
+# Binary files, marked explicitly.
+#
+# This matters more than usual here: the Textalker ROM images are small and
+# have no reliable NUL density near the start, so leaving git to guess risks it
+# treating one as text and "fixing" its line endings on checkout -- which would
+# silently corrupt the firmware and produce an emulator that boots into
+# nonsense. Being explicit removes the guess.
+*.bin  binary
+*.dll  binary
+*.exe  binary
+*.ico  binary
+*.wav  binary
+*.obj  binary
+
+# Everything else is text; normalise in the repository, let git hand out the
+# platform's own endings on checkout.
+*           text=auto
+*.c         text
+*.cpp       text
+*.h         text
+*.hpp       text
+*.py        text
+*.md        text
+*.txt       text
+*.html      text
+
+# Files that must keep CRLF, because the tools that read them are Windows-only
+# and some of them are unhappy with bare LF.
+*.bat       text eol=crlf
+*.iss       text eol=crlf
+*.rc        text eol=crlf
+*.def       text eol=crlf
+*.ps1       text eol=crlf

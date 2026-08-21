@@ -1,0 +1,22 @@
+# Build trees and staged output
+build
+build_x64
+build_x86
+output
+
+# Python
+__pycache__/
+*.pyc
+
+# Rendered demo audio. Reproducible with tools/render_samples.py, and the full
+# set runs to 35 MB; only the two short default-settings clips are committed so
+# the repository stays small but still lets someone hear the voices.
+samples/*
+!samples/textalker_default.wav
+!samples/textalker_v13_default.wav
+
+# The BestSpeech wrapper this project's COM layer was adapted from. Kept
+# locally as a reference while porting, but not redistributed here: it is
+# Gozaltech's, it is not needed to build anything, and its terms are theirs to
+# state rather than mine. Credited in CREDITS.md instead.
+reference/bestspeech/

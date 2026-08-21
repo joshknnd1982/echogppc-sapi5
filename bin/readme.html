@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>EchoTalk -- readme</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="echotalk-an-echo-ii-emulator-for-nvda-by-jayson-smith">EchoTalk:
+an Echo II Emulator for NVDA by Jayson Smith</h1>
+<h2 id="what-is-this">What is this?</h2>
+<p>This NVDA addon emulates the Echo II speech synthesizer made by
+Street Electronics Corp. This synthesizer was used in the Apple II line
+of computers in the 1980’s. For many of us who were using computers
+during that time period, the Echo was the first speech synthesizer we
+ever heard, and for some of us, it was all we had for years. Now, at
+last, you can use this same speech synthesizer directly in a modern
+screen reader, whether you’re wanting to revisit old memories or you’ve
+never heard Echo before and are curious about how it sounds.</p>
+<h2 id="how-does-it-work">How does it work?</h2>
+<p>This addon emulates the Texas Instruments TMS5220 chip which is the
+heart of the Echo speech synthesizer. It also emulates a MOS Technology
+6502 microprocessor, the CPU used in the earliest Apple II series
+computers. This CPU natively runs the real, unmodified Textalker Echo
+speech generator software which drives the TMS5220 chip on the Echo
+speech synthesizer circuit board.</p>
+<h2 id="ai-coding-disclosure">AI Coding Disclosure</h2>
+<p>EchoTalk was coded entirely by Claude Code, with extensive guidance
+from me. I directed the work, supplied the Textalker disks, made the
+design decisions and, importantly, did the listening. Several real bugs
+in this were found by ear and would not otherwise have been caught,
+including a speech-pacing fault that had survived five sessions of
+automated measurement saying everything was fine.</p>
+<h2 id="settings-and-their-explanations">Settings and their
+Explanations</h2>
+<p>In the Speech category of NVDA’s settings, when using this addon as
+your current synthesizer, you’ll find the following settings:</p>
+<ul>
+<li><p>Voice: Switches the Textalker version. As this addon is packaged,
+your choices are Textalker 3.1.3 and Textalker 1.3. Version 3.1.3 is
+from 1986 while 1.3 is from 1981. Each has its own unique sound, and a
+few features are not available in 1.3.</p></li>
+<li><p>Rate: changes the speaking rate. This uses a custom method of
+modifying how the emulated TMS5220 chip generates speech. This gives
+much more control over the speech rate than is normally available with
+Echo.</p></li>
+<li><p>Pitch: Textalker has sixty-three pitches, though due to the way
+NVDA renders these sliders using percentages, not every pitch setting
+can be represented.</p></li>
+<li><p>Volume: This uses Textalker’s volume control commands, so lower
+values will sound fuzzy, and the highest values will sound distorted in
+a unique way.</p></li>
+<li><p>Delay between words: This can add an adjustable delay between
+words. This feature is only available in Textalker version 3.</p></li>
+<li><p>Repeat character filter: This can be used to filter out repeated
+characters that are often used for decoration, ASCII art, etc. Note,
+however, that Textalker doesn’t discriminate between punctuations and
+letters, so too low of a setting here may make undesirable modifications
+to the text being spoken. This is a known Textalker limitation. This
+feature is also only available in Textalker version 3.</p></li>
+<li><p>Chip clock: This changes the clock rate on the emulated TMS5220
+chip. Changing this will change both the speed and the pitch of the
+voice. It acts just like speeding up or slowing down an analog tape
+recorder.</p></li>
+<li><p>Output sample rate: You have several choices here. The TMS5220
+chip outputs at a sample rate of 8000. Your choices are 8K, 11K, 16K,
+22K, 32K, 44K and 48K. Audio is naively upsampled without an
+antialiasing filter, and this is intentional since it gives higher
+frequency response where none would otherwise be possible. Note that
+this setting acts as a minimum rather than an exact figure, because the
+Chip clock setting above raises what the chip itself produces: at a chip
+clock of 1.5 the chip is generating 12000, so the output rate is raised
+to at least 12000 rather than downsampling the speech and throwing away
+quality. Your own choice is remembered, and takes effect again as soon
+as you bring the chip clock back down.</p></li>
+<li><p>Monotone: This is a check box, and enables or disables
+Textalker’s ability to speak text in a completely monotone voice at your
+chosen pitch.</p></li>
+<li><p>Compressed speech: Another check box, this chooses between
+Compressed (fast) and Expanded (slow) speech, the two traditional speech
+rates Textalker natively supports. Textalker’s implementation of
+compressed speech works by skipping tiny portions of the speech, so it
+sounds a bit different in addition to being faster. This difference is
+most noticeable with soft G or J sounds as in “giraffe” and “journey.”
+The normal rate slider does not exhibit this behavior. This gives you
+the flexibility to experiment until you find what works best for you.
+Don’t forget that you can also adjust the TMS5220 chip’s clock speed for
+yet another way to adjust the speaking rate while also changing the
+pitch.</p></li>
+</ul>
+<h2 id="things-to-know">Things to Know</h2>
+<ul>
+<li><p>EchoTalk divides the text to be spoken into chunks so it will fit
+within Textalker’s text buffer. The maximum chunk size is eighty
+characters. It splits chunks at clause boundaries (commas, periods,
+etc.) when it can, and never splits in the middle of a word unless one
+single word is longer than eighty bytes (in ordinary text this almost
+never happens). Each chunk of text is sent to Textalker as a separate
+utterance, so in especially long sentences you may be able to detect
+chunk boundaries because of the way they affect the synthesized
+speech.</p></li>
+<li><p>Textalker version 3 raises the pitch of single capital letters on
+its own. If you want capital letters raised in pitch the way Textalker
+does it, you need to set NVDA’s Capital pitch change percentage setting
+to zero. Note that Textalker 1.3 does <em>not</em> have any facility for
+raising the pitch of capital letters.</p></li>
+</ul>
+<h2 id="license">License</h2>
+<p>Since EchoTalk is an NVDA addon, it must be distributed under the
+terms of the GNU General Public License, version 2 (GPL). You can find a
+copy of this license <a href="copying">here</a>. The source code of the
+EchoTalk library which powers this addon, and of the related tools, is
+released under the 3-clause BSD license, which is one-way compatible
+into the GPL.</p>
+<p>Please see the <a href="THIRD_PARTY_LICENSES.html">Third Party
+Licenses</a> file in this folder for the licenses under which various
+components of this addon are distributed. In brief, code derived from
+MAME source code is distributed under the 3-clause BSD license, and the
+6502 emulator is public domain. The Textalker binary files are not
+covered by any of these licenses.</p>
+</body>
+</html>
