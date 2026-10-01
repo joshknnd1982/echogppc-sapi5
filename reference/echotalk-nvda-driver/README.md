@@ -6,7 +6,7 @@ entry point with its argument types, and its comments record a number of
 things about the library that are not obvious and were expensive to learn.
 
 **It is licensed GPL-2.0**, as NVDA add-ons must be — not under this
-repository's BSD-3-Clause licence. It is not compiled into, linked with, or
+repository's MIT License. It is not compiled into, linked with, or
 required by anything this project builds. Nothing here is derived from it in
 the copyright sense; it was read, not copied.
 

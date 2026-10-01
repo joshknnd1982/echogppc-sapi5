@@ -76,8 +76,8 @@ handshake for that port.
 
 ## Fake6502 — the CPU
 
-Copyright © Mike Chambers, 2011. Public domain, credit given at the author's
-request.
+Copyright © Mike Chambers, 2011. Credit given at the author's request; his
+own licence statement is reproduced in `bin/THIRD_PARTY_LICENSES.txt`.
 
 The 6502 emulation that runs Textalker itself. Also vendored inside the
 echotalk DLLs.
@@ -90,7 +90,7 @@ carries a 1986 American Printing House for the Blind copyright.
 Textalker is the actual speech program: the letter-to-sound rules, the
 command set, the pitch and volume handling, all of it. It is executed here
 under emulation, entirely unmodified. It is **proprietary and not licensed for
-redistribution** — see `LICENSE` for what that means for this repository.
+redistribution** — see `NOTICE.md` for what that means for this repository.
 
 ## Street Electronics Corporation — the hardware
 

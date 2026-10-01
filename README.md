@@ -18,7 +18,7 @@ screen readers, Narrator, browsers, Balabolka, anything that speaks.
 > They are here for the convenience of people who already own Textalker. Their
 > presence is not a grant of any right to copy or redistribute them. The
 > upstream EchoTalk project deliberately ships without them and asks users to
-> supply their own. See [LICENSE](LICENSE) for the full statement.
+> supply their own. See [NOTICE.md](NOTICE.md) for the full statement.
 >
 > If you are a rights holder and want them removed, please open an issue.
 
@@ -345,9 +345,11 @@ reaching the audio.
 
 ## Licence and credits
 
-BSD 3-Clause — see [LICENSE](LICENSE), which also sets out the two sets of
-files that are **not** under it: the proprietary Textalker ROM images, and the
-GPL-2.0 EchoTalk NVDA driver kept under `reference/` as ABI documentation.
+The code written for this project is licensed under the MIT License — see
+[LICENSE](LICENSE). [NOTICE.md](NOTICE.md) carries the third-party notices and
+also sets out the two sets of files that are **not** under it: the proprietary
+Textalker ROM images, and the GPL-2.0 EchoTalk NVDA driver kept under
+`reference/` as ABI documentation.
 
 [CREDITS.md](CREDITS.md) covers who actually built what. The short version:
 every sound this makes is the EchoTalk project's work, the COM layer is
